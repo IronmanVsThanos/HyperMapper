@@ -18,9 +18,23 @@ It builds on **DepthAnythingV2** and introduces **hyperbolic token-to-feature in
 
 ## 🎥 Zero-Shot Multi-Domain Scene Parsing
 
-| Rainy | Night | Snowy | Foggy | Overcast |
-|:--:|:--:|:--:|:--:|:--:|
-| <video src="https://github.com/user-attachments/assets/6c630330-bd32-4f7a-96ef-e6342ac8d7d9" width="200" autoplay loop muted></video> | <video src="https://github.com/user-attachments/assets/11fcc21f-f7e5-4393-8bff-49b84afec680" width="200" autoplay loop muted></video> | <video src="https://github.com/user-attachments/assets/0afe46c1-8b8d-4917-8c5e-692cf5205c14" width="200" autoplay loop muted></video> | <video src="https://github.com/user-attachments/assets/b7d26088-ec4c-4ff2-8a88-748b5f306803" width="200" autoplay loop muted></video> | <video src="https://github.com/user-attachments/assets/ac175212-3f9e-47ca-8c43-81f0e150a3f6" width="200" autoplay loop muted></video> |
+**Rainy**
+<video src="https://github.com/user-attachments/assets/6c630330-bd32-4f7a-96ef-e6342ac8d7d9" width="480" autoplay loop muted></video>
+
+**Night**
+<video src="https://github.com/user-attachments/assets/11fcc21f-f7e5-4393-8bff-49b84afec680" width="480" autoplay loop muted></video>
+
+**Snowy**
+<video src="https://github.com/user-attachments/assets/0afe46c1-8b8d-4917-8c5e-692cf5205c14" width="480" autoplay loop muted></video>
+
+**Foggy**
+<video src="https://github.com/user-attachments/assets/b7d26088-ec4c-4ff2-8a88-748b5f306803" width="480" autoplay loop muted></video>
+
+**Overcast**
+<video src="https://github.com/user-attachments/assets/ac175212-3f9e-47ca-8c43-81f0e150a3f6" width="480" autoplay loop muted></video>
+
+> Zero-shot dual-task parsing (semantic segmentation + depth estimation) across unseen weather domains.
+
 
 > Zero-shot dual-task parsing (segmentation + depth) on unseen weather domains.
 
