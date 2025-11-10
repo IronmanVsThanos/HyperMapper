@@ -1,74 +1,35 @@
-# 🌌 HyperMapper: Hyperbolic Structure-Aware Mapping for Dual-Task Scene Parsing with Only 0.6% Additional Parameters
+# 🌌 HyperMapper: Hyperbolic Structure-Aware Mapping for Dual-Task Scene Parsing
 
-> Official PyTorch Implementation of the paper  
-> **"Beyond Euclidean Tokens: Hyperbolic Structure-Aware Mapping for Dual-Task Scene Parsing with Only 0.6% Additional Parameters"**  
->  
-> 🏛️ *Southwest Jiaotong University* · 🚀 *2025 IEEE Transactions on Intelligent Transportation Systems (under review)*  
->  
-> 🔗 Paper | 📘 Project Page | 📦 [Dataset Links](#datasets) | 🧠 [Model Weights](#pretrained-weights)
+Official PyTorch implementation of  
+**"Beyond Euclidean Tokens: Hyperbolic Structure-Aware Mapping for Dual-Task Scene Parsing with Only 0.6% Additional Parameters"**
 
 ---
 
-## 🧭 Abstract
+## 🔍 Overview
 
-Achieving unified scene parsing that jointly performs cross-domain **semantic segmentation** and **depth estimation** without scene-specific retraining is crucial for robust perception in complex real-world environments, yet remains a challenging goal.
+**HyperMapper** is a **hyperbolic structure-aware framework** for unified scene parsing — jointly performing semantic segmentation and depth estimation **across unseen domains** without retraining.  
+It builds on **DepthAnythingV2** and introduces **hyperbolic token-to-feature interactions**, achieving:
 
-We identify a persistent **Hierarchical Bias**, where fine-grained categories degrade more severely than coarse-grained ones under domain or viewpoint shifts.  
-To address this, we propose **HyperMapper**, a **hyperbolic structure-aware mapping framework** that unifies semantic and geometric understanding via **hyperbolic token-to-feature interactions** within the Poincaré ball.
-
-By exploiting the negative curvature of hyperbolic space, HyperMapper naturally encodes hierarchical relationships and maintains geometric consistency across domains.  
-With only **0.6% additional parameters (1.99M)**, it inherits the depth generalization of **DepthAnythingV2** while significantly improving cross-domain segmentation.
-
-**Results:**  
-- 🔺 **26.8% reduction** in hierarchical bias  
-- 📈 **+4.0% mIoU** over state-of-the-art baselines  
-- ⚡ Zero retraining for depth estimation  
+- **26.8% reduction** in hierarchical bias  
+- **+4.0% mIoU** gain on cross-domain benchmarks  
+- **Only 0.6% extra parameters (1.99M)**
 
 ---
 
-## 🏗️ Framework Overview
+## 🎥 Zero-Shot Multi-Domain Scene Parsing
 
-<p align="center">
-  <img src="assets/hypermapper_framework.png" width="85%">
-</p>
+| Rainy | Night | Snowy | Foggy | Overcast |
+|:--:|:--:|:--:|:--:|:--:|
+| <video src="https://github.com/user-attachments/assets/6c630330-bd32-4f7a-96ef-e6342ac8d7d9" width="200" autoplay loop muted></video> | <video src="https://github.com/user-attachments/assets/11fcc21f-f7e5-4393-8bff-49b84afec680" width="200" autoplay loop muted></video> | <video src="https://github.com/user-attachments/assets/0afe46c1-8b8d-4917-8c5e-692cf5205c14" width="200" autoplay loop muted></video> | <video src="https://github.com/user-attachments/assets/b7d26088-ec4c-4ff2-8a88-748b5f306803" width="200" autoplay loop muted></video> | <video src="https://github.com/user-attachments/assets/ac175212-3f9e-47ca-8c43-81f0e150a3f6" width="200" autoplay loop muted></video> |
 
-**Key components:**
-- **Hyperbolic Token Mapping** — Projects semantic tokens into the Poincaré ball using exponential and logarithmic maps.  
-- **Geometry-Aware Modulation** — Ensures task alignment between semantic and geometric branches.  
-- **PEFT Integration** — Parameter-efficient adaptation on frozen foundation backbones (e.g., DepthAnythingV2, DINOv2).  
+> Zero-shot dual-task parsing (segmentation + depth) on unseen weather domains.
 
 ---
 
-## 🚀 Highlights
-
-| Feature | Description |
-|----------|-------------|
-| 🧩 **Unified Scene Parsing** | Joint semantic segmentation & depth estimation |
-| 🌍 **Cross-Domain Generalization** | Tested on Cityscapes → ACDC, BDD100K, WildDash, etc. |
-| ⚙️ **Parameter-Efficient** | Only 0.6% additional parameters (≈1.99M) |
-| 🌀 **Hyperbolic Geometry** | Structure-aware semantic embedding using Poincaré ball |
-| 🧠 **DepthAnything Integration** | Retains pretrained geometric consistency |
-| 🔍 **Hierarchical Bias Reduction** | Up to 26.8% improvement over Euclidean baselines |
-
----
-
-## 🧪 Results
-
-### Cross-Domain Scene Parsing (Cityscapes → ACDC)
-
-| Method | Add. Params | mIoU ↑ | Hier. Bias ↓ | Depth Transfer |
-|--------|--------------|--------|---------------|----------------|
-| Baseline (DepthAnythingV2) | – | 62.1 | 1.00× | ✅ |
-| Adapter-Only (LoRA) | +0.4% | 63.5 | 0.91× | ✅ |
-| **HyperMapper (Ours)** | **+0.6%** | **66.1** | **0.74×** | ✅ |
-
----
-
-## 🧩 Installation
+## ⚙️ Quick Start
 
 ```bash
 git clone https://github.com/yourusername/HyperMapper.git
 cd HyperMapper
-conda create -n hypermapper python=3.10
-conda activate hypermapper
 pip install -r requirements.txt
+python demo_infer.py --image_path ./samples/demo.png
