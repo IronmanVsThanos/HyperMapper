@@ -47,4 +47,3 @@ It builds on **DepthAnythingV2** and introduces **hyperbolic token-to-feature in
 git clone https://github.com/yourusername/HyperMapper.git
 cd HyperMapper
 pip install -r requirements.txt
-python demo_infer.py --image_path ./samples/demo.png
